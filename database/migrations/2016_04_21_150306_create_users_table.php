@@ -16,12 +16,12 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('lastname');
-            $table->integer('docId');
+            $table->integer('doc_id');
             $table->string('address');
             $table->integer('phone');
             $table->string('email')->unique();
             $table->string('password', 60);
-            $table->integer('active');
+            $table->boolean('active')->default(0);
             $table->string('position');
             $table->string('permit');
             $table->date('date');
@@ -30,8 +30,8 @@ class CreateUsersTable extends Migration
             $table->string('imageQr');
             $table->rememberToken();
             $table->timestamps();
-            $table->integer('companyId')->unsigned();
-            $table->Foreign('companyId')->references('id')->on('companies');
+            $table->integer('company_id')->unsigned();
+            $table->Foreign('company_id')->references('id')->on('companies');
         });
     }
 

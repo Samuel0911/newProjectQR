@@ -14,13 +14,13 @@ class CreateAssistancesTable extends Migration
     {
         Schema::create('assistances', function (Blueprint $table) {
             $table->increments('id');
-            $table->time('checkIn');
-            $table->time('checkOut');
+            $table->time('check_in');
+            $table->time('check_out');
             $table->date('date');
-            $table->integer('workHour');
+            $table->integer('work_hour');
             $table->timestamps();
-            $table->integer('userId')->unsigned();
-            $table->foreign('userId')->references('id')->on('users');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
 
         });
     }
