@@ -49,20 +49,24 @@
 			{!! Form::select('type',['member' => 'Miembro', 'admin' => 'Admin'], null, ['class' => 'form-control'], 'placeholder', 'Select an option', 'required') !!}
 		</div>
 
-		<div class="form-group">
-			{!! Form::label('date', 'Date') !!}
-			{!! Form::date('date', \Carbon\Carbon::now(),['class' => 'form-control'], 'required') !!}
-		</div>
-
-		<div class="form-group">
-			{!! Form::label('startDate', 'Start Date') !!}
-			{!! Form::date('startDate', \Carbon\Carbon::now(),['class' => 'form-control'], 'required') !!}
+{!! $date =  \Carbon\Carbon::now() !!}
+		<div class="form-group">			
+			{!! Form::label('date', 'Date') !!}			
+			{!! Form::date('date', $date,['class' => 'form-control'], 'required') !!}
 		</div>
 
 		<div class="form-group">			
-			{!! Form::label('date', 'End Date') !!}
-			{!! Form::date('date', \Carbon\Carbon::now(),['class' => 'form-control'], 'required') !!}
+			{!! Form::label('startDate', 'Start Date') !!}
+
+			{!! Form::date('date', $date->toW3cString(),['class' => 'form-control'], 'required') !!}
 		</div>
+
+		<div class="form-group">			
+			{!! Form::label('endDate', 'End Date') !!}
+
+			{!! Form::date('date', $date->toW3cString(),['class' => 'form-control'], 'required') !!}
+		</div>
+		
 
 		<div class="form-group">
 			{!! Form::submit('Registrar', ['class' => 'btn btn-primary']) !!}
